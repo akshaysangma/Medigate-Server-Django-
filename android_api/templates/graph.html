@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Plot Line Graph</title>
+<caption>Patient data of {{username}}</caption> 
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+#placeholder { width: 450px; height: 200px; }
+</style>
+ 
+<!--[if lte IE 8]><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+</script> 
+
+</head>
+ 
+<body>
+
+
+
+     <!-- <div id="placeholder"></div> -->
+     <form method = "POST">{% csrf_token %}
+        Date:
+        <input type ="date" name="specdate">
+        <input type ="submit" name = "" value = "Plot">
+    </form>
+    </div>
+    <div id = "first" style = "margin-bottom: 0px">{{ chart.as_html }}</div>
+    <div id = "second">{{chart2.as_html}}</div>
+    
+</body>
+</html>

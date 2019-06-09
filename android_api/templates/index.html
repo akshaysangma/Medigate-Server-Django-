@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Login form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+
+<body> 
+    <div class='loginbox'>
+           
+    <img src="{% static "images/images.png" %}" class="pharm">
+        <h1>Welcome to MediGate</h1>
+        
+        <form method="POST">{% csrf_token %}
+               
+       
+        <input type="text"  placeholder = "Username" name = "user">
+        
+        <input type="password" placeholder = "Password" name = "password">
+        <input type="submit" name="" value="login">
+       
+    </form>
+    </div>
+
+</body>
+</head>
+</html>

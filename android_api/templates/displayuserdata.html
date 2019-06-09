@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h2>{{username}}</h2>
+
+
+<table style="width:100%">
+
+  <caption>Patient data</caption>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td>{{ userdata }}</td>
+    <td>{{ userdata.email }}</td>
+    <td>{{ userdata.city }}</td>
+     <a href="{% url 'plot' username=username %} "  >Visual representation</a> 
+  </table>
+
+<table style="width:100%">
+
+    <caption>Sensor data</caption>
+   
+    <tr>  
+      <th>Time</th>
+      <th>Pulse rate</th>
+      <th>Temperature</th>
+    </tr>
+    
+    {% for student in sensordata %}
+    <tr>
+      <td>{{student.timestamp}}</td>
+      <td>{{ student.pulse }}</td>
+      <td>{{ student.temp }}</td>
+     </tr>
+      {% endfor %}
+    </table>  
+
+{% if userdata.service == 1 %}
+<table style="width:30%">
+
+  <caption>Patient List</caption>
+  <tr>
+    <th>Patients</th>
+  </tr>
+ 
+  {% for pat in Patient %}
+  <tr>
+    <td>  <a href="{% url 'plot'  pat.Patient %} "  >{{pat.Patient}}</a> </td>
+  </tr>
+  {% endfor %}
+
+  
+  </table>
+  {% endif %} 
+
+</body>
+</html>
